@@ -2358,30 +2358,69 @@ export const slides: Slide[] = [
     {
         id: "outro",
         content: (
-            <div className="text-center space-y-12">
-                <div className="space-y-4">
-                    <h2 className="text-5xl md:text-7xl font-display font-bold text-slate-900">Mari Berkolaborasi</h2>
-                    <p className="text-xl text-slate-500 max-w-2xl mx-auto">
-                        Wujudkan Desa Digital yang tangguh, mandiri, dan berdaya saing global mulai hari ini.
-                    </p>
+            <div className="relative w-full h-[600px] rounded-[48px] overflow-hidden flex items-center justify-center p-12">
+                {/* Background with Cinematic Image */}
+                <div className="absolute inset-0">
+                    <img
+                        src="/future_village_closing_1773146060875.png"
+                        alt="Future Village Vision"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+                    <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px]" />
                 </div>
-                <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-                    <div className="glass px-8 py-4 rounded-2xl border border-slate-200/50">
-                        <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">Contact Person</p>
-                        <p className="font-bold text-slate-600">admin@desakita.go.id</p>
+
+                <div className="relative z-10 text-center space-y-12 max-w-5xl">
+                    <div className="space-y-6">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 text-xs font-black uppercase tracking-[0.4em] shadow-xl"
+                        >
+                            Visionary Conclusion
+                        </motion.div>
+                        <div className="space-y-2">
+                            <h2 className="text-5xl md:text-7xl font-display font-black text-slate-900 leading-tight">
+                                Membangun Masa Depan <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-blue-600">Desa Indonesia</span>
+                            </h2>
+                            <p className="text-xl md:text-2xl text-slate-700 font-medium max-w-3xl mx-auto">
+                                Mewujudkan tata kelola yang cerdas, inklusif, dan berdaulat untuk kesejahteraan seluruh warga desa.
+                            </p>
+                        </div>
                     </div>
-                    <div className="glass px-8 py-4 rounded-2xl border border-slate-200/50">
-                        <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">Website</p>
-                        <p className="font-bold text-slate-600">www.digitalisasidesa.id</p>
+
+                    {/* Summary Pillars */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {[
+                            { title: "Kedaulatan Data", icon: <ShieldCheck className="w-5 h-5" />, color: "text-emerald-600" },
+                            { title: "Kesenjangan Digital", icon: <Network className="w-5 h-5" />, color: "text-blue-600" },
+                            { title: "Ekonomi Mandiri", icon: <TrendingUp className="w-5 h-5" />, color: "text-amber-600" }
+                        ].map((pillar, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5 + (i * 0.1) }}
+                                className="glass px-6 py-4 rounded-2xl border border-white/60 shadow-lg flex items-center gap-3 bg-white/40 backdrop-blur-md"
+                            >
+                                <div className={`p-2 rounded-xl bg-white shadow-sm ${pillar.color}`}>{pillar.icon}</div>
+                                <span className="text-sm font-bold text-slate-900 uppercase tracking-tighter">{pillar.title}</span>
+                            </motion.div>
+                        ))}
                     </div>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1, duration: 1.5 }}
+                        className="pt-10"
+                    >
+                        <h3 className="text-6xl md:text-8xl font-display font-black text-slate-900 tracking-tighter">
+                            Terima Kasih
+                        </h3>
+                    </motion.div>
                 </div>
-                <motion.div
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="text-primary-600 font-display font-black text-2xl tracking-tighter opacity-20"
-                >
-                    MAJU BERSAMA TEKNOLOGI
-                </motion.div>
             </div>
         ),
     }
