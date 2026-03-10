@@ -1537,53 +1537,90 @@ export const slides: Slide[] = [
     {
         id: "ai-innovations",
         content: (
-            <div className="space-y-12">
-                <div className="text-center space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 border border-primary-100 text-primary-600 text-xs font-bold uppercase tracking-widest">
-                        <Brain className="w-3 h-3" /> Inovasi AI
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 tracking-tight">Kecerdasan Buatan di Desa</h2>
+            <>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary-100/10 blur-[120px] rounded-full" />
+
+                <div className="text-center space-y-4 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 text-primary-400 text-[10px] font-bold uppercase tracking-[0.3em] shadow-2xl border border-primary-500/20"
+                    >
+                        <Brain className="w-3.5 h-3.5" /> Deep Tech Implementation
+                    </motion.div>
+                    <h2 className="text-5xl md:text-6xl font-display font-extrabold text-slate-900 tracking-tight">
+                        Integrasi <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-violet-600 to-blue-600">Artificial Intelligence</span>
+                    </h2>
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg">Membawa kecerdasan buatan ke level akar rumput untuk pelayanan yang lebih prediktif dan responsif.</p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-6">
+
+                <div className="grid md:grid-cols-2 gap-6 relative z-10">
                     {[
                         {
-                            title: "DesaBot (Gen AI)",
-                            desc: "Chatbot responsif 24/7 untuk menjawab pertanyaan warga terkait regulasi, layanan, dan bantuan sosial.",
-                            icon: <Bot className="w-8 h-8" />,
-                            color: "bg-blue-50 text-blue-600"
+                            title: "DesaBot (Generative AI)",
+                            desc: "Chatbot responsif 24/7 yang memahami konteks regulasi desa & bansos melalui Large Language Model.",
+                            icon: <MessageSquare className="w-6 h-6" />,
+                            tag: "NLP Engine",
+                            color: "from-blue-500/20 to-indigo-500/10",
+                            border: "border-blue-200/50"
                         },
                         {
-                            title: "Analisis Kemiskinan AI",
-                            desc: "Algoritma cerdas untuk memetakan warga rentan secara presisi melalui integrasi data lintas sektor.",
-                            icon: <TrendingUp className="w-8 h-8" />,
-                            color: "bg-emerald-50 text-emerald-600"
+                            title: "Visual OCR Intelligence",
+                            desc: "Otomasi ekstraksi data dari KTP/KK/Surat dengan akurasi 99% — mempercepat administrasi instan.",
+                            icon: <ShieldCheck className="w-6 h-6" />,
+                            tag: "Computer Vision",
+                            color: "from-violet-500/20 to-purple-500/10",
+                            border: "border-violet-200/50"
                         },
                         {
-                            title: "Otomasi Dokumen",
-                            desc: "Ekstraksi data otomatis dari KTP/KK untuk mempercepat pengisian formulir administrasi tanpa kesalahan.",
-                            icon: <ShieldCheck className="w-8 h-8" />,
-                            color: "bg-violet-50 text-violet-600"
+                            title: "AI Poverty Mapping",
+                            desc: "Algoritma pemetaan kemiskinan berbasis data spasial & ekonomi untuk ketepatan sasaran bantuan (BLT).",
+                            icon: <TrendingUp className="w-6 h-6" />,
+                            tag: "Predictive Analytics",
+                            color: "from-emerald-500/20 to-teal-500/10",
+                            border: "border-emerald-200/50"
+                        },
+                        {
+                            title: "Executive Command Hub",
+                            desc: "Panel analisis cerdas bagi Kepala Desa untuk memantau performa aparatur & kesehatan data desa.",
+                            icon: <LayoutDashboard className="w-6 h-6" />,
+                            tag: "Decision Support",
+                            color: "from-amber-500/20 to-orange-500/10",
+                            border: "border-amber-200/50"
                         }
                     ].map((item, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="glass p-8 rounded-3xl border border-slate-200 flex flex-col gap-4 relative overflow-hidden group"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1, duration: 0.6 }}
+                            whileHover={{ y: -8, scale: 1.02 }}
+                            className={`group relative p-8 rounded-[36px] bg-gradient-to-br ${item.color} border ${item.border} backdrop-blur-sm shadow-xl overflow-hidden`}
                         >
-                            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                {item.icon}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-white/20 transition-colors" />
+
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="p-4 rounded-2xl bg-white shadow-lg text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
+                                    {item.icon}
+                                </div>
+                                <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-white/50 border border-white/80 text-slate-600">
+                                    {item.tag}
+                                </span>
                             </div>
-                            <div className={`p-3 rounded-2xl ${item.color} w-fit`}>
-                                {item.icon}
+
+                            <div className="space-y-3">
+                                <h3 className="text-2xl font-black text-slate-900 tracking-tight leading-none">{item.title}</h3>
+                                <p className="text-sm text-slate-600 leading-relaxed font-medium">{item.desc}</p>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
-                            <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+
+                            <div className="mt-6 pt-6 border-t border-black/5 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse" />
+                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Active Neural Link</span>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
-            </div>
+            </>
         ),
     },
     {
@@ -1823,31 +1860,96 @@ export const slides: Slide[] = [
     {
         id: "benefits",
         content: (
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="glass rounded-3xl p-1 shadow-xl overflow-hidden aspect-video relative flex items-center justify-center bg-white border border-slate-200/50">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-100/30 to-transparent pointer-events-none" />
-                    <Smartphone className="w-32 h-32 text-slate-700 absolute animate-pulse" />
-                    <div className="text-center z-10 px-8">
-                        <p className="text-primary-600 font-mono text-sm mb-2 uppercase tracking-widest">Visual Concept</p>
-                        <h4 className="text-2xl font-bold text-slate-700">Smart Village App Mockup</h4>
-                        <p className="text-slate-500 text-xs mt-2 italic">Representasi aplikasi super-app desa dalam genggaman warga.</p>
-                    </div>
+            <div className="space-y-12 h-full flex flex-col justify-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100/20 blur-[100px] rounded-full -mr-32 -mt-32" />
+
+                <div className="text-center space-y-4 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-[0.2em] border border-emerald-100 shadow-sm"
+                    >
+                        <Users className="w-3.5 h-3.5" /> Citizen-Centric Innovation
+                    </motion.div>
+                    <h2 className="text-4xl md:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
+                        Manfaat Langsung <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">bagi Warga Desa</span>
+                    </h2>
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Memberdayakan masyarakat melalui akses layanan digital yang inklusif, transparan, dan responsif.</p>
                 </div>
-                <div className="space-y-6">
-                    <h2 className="text-4xl font-display font-bold text-slate-900">Manfaat Langsung bagi Warga</h2>
-                    <ul className="space-y-4">
+
+                <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
+                    {/* Left side: Grid of features */}
+                    <div className="grid grid-cols-1 gap-4">
                         {[
-                            { icon: <ShieldCheck className="w-5 h-5" />, text: "Akses Layanan 24/7 Tanpa Antre" },
-                            { icon: <Users className="w-5 h-5" />, text: "Keterlibatan Masyarakat dalam Aspirasi (E-Musrenbang)" },
-                            { icon: <TrendingUp className="w-5 h-5" />, text: "Promosi UMKM Desa ke Pasar Nasional & Internasional" },
-                            { icon: <Database className="w-5 h-5" />, text: "Penerima Bantuan Sosial yang Lebih Tepat Sasaran" },
+                            {
+                                title: "Kemandirian Layanan Digital",
+                                desc: "Akses 24/7 untuk pengajuan surat keterangan & dokumen kependudukan tanpa perlu antre di kantor desa.",
+                                icon: <Smartphone className="w-5 h-5" />,
+                                color: "bg-blue-50 text-blue-600"
+                            },
+                            {
+                                title: "Partisipasi Publik Aktif",
+                                desc: "Saluran aspirasi langsung via E-Musrenbang & hub pengaduan warga untuk pembangunan yang lebih tepat sasaran.",
+                                icon: <MessageSquare className="w-5 h-5" />,
+                                color: "bg-violet-50 text-violet-600"
+                            },
+                            {
+                                title: "Pemberdayaan Ekonomi",
+                                desc: "Integrasi Pasar Desa & BUMDes untuk mempromosikan produk lokal UMKM ke ekosistem yang lebih luas.",
+                                icon: <TrendingUp className="w-5 h-5" />,
+                                color: "bg-emerald-50 text-emerald-600"
+                            },
+                            {
+                                title: "Presisi Penyaluran Bantuan",
+                                desc: "Transparansi data penerima bansos (BLT/PKH) yang terverifikasi AI untuk meminimalisir kesalahan sasaran.",
+                                icon: <ShieldCheck className="w-5 h-5" />,
+                                color: "bg-amber-50 text-amber-600"
+                            }
                         ].map((item, i) => (
-                            <li key={i} className="flex items-center gap-3 text-slate-600">
-                                <div className="text-primary-600">{item.icon}</div>
-                                <span>{item.text}</span>
-                            </li>
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group flex gap-5 p-5 rounded-[28px] bg-white/50 border border-slate-200/60 backdrop-blur-md hover:bg-white hover:shadow-xl hover:border-emerald-200 transition-all duration-300"
+                            >
+                                <div className={`p-3.5 rounded-2xl ${item.color} shadow-sm shrink-0`}>
+                                    {item.icon}
+                                </div>
+                                <div className="space-y-1">
+                                    <h4 className="font-bold text-slate-900 text-base group-hover:text-emerald-700 transition-colors">{item.title}</h4>
+                                    <p className="text-slate-500 text-xs leading-relaxed font-medium">{item.desc}</p>
+                                </div>
+                            </motion.div>
                         ))}
-                    </ul>
+                    </div>
+
+                    {/* Right side: Visual Mockup */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, rotateY: 10 }}
+                        animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                        className="relative hidden md:block"
+                    >
+                        <div className="absolute inset-0 bg-emerald-400 blur-[80px] opacity-10 rounded-full scale-75" />
+                        <div className="glass rounded-[48px] p-2 border border-slate-200/50 shadow-2xl relative z-10 overflow-hidden transform hover:rotate-2 transition-transform duration-500">
+                            <img
+                                src="/citizen_app_mockup_1773145276670.png"
+                                alt="Citizen App Mockup"
+                                className="w-full h-auto rounded-[40px] shadow-lg"
+                            />
+                        </div>
+
+                        {/* Decorative elements */}
+                        <div className="absolute -bottom-6 -left-6 p-4 rounded-2xl bg-white shadow-xl border border-slate-100 z-20 flex items-center gap-3 animate-bounce shadow-emerald-200/50">
+                            <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white">
+                                <Zap className="w-4 h-4" />
+                            </div>
+                            <div>
+                                <p className="text-[10px] font-black text-slate-900 uppercase">Real-time Service</p>
+                                <p className="text-[9px] text-slate-500">Aktif & Terintegrasi</p>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         ),
@@ -2032,50 +2134,98 @@ export const slides: Slide[] = [
     {
         id: "roadmap",
         content: (
-            <div className="space-y-12">
-                <div className="text-center space-y-4">
-                    <h2 className="text-4xl font-display font-bold text-slate-900">Tahapan Implementasi</h2>
-                    <p className="text-slate-500 max-w-2xl mx-auto">Langkah strategis menuju kemandirian digital desa.</p>
+            <div className="space-y-12 h-full flex flex-col justify-center relative overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary-50/10 blur-[120px] rounded-full" />
+
+                <div className="text-center space-y-4 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 text-primary-400 text-[10px] font-bold uppercase tracking-[0.3em] shadow-2xl border border-primary-500/20"
+                    >
+                        Strategic Journey
+                    </motion.div>
+                    <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight">
+                        Tahapan <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-blue-600 to-indigo-600">Implementasi Strategis</span>
+                    </h2>
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg">Roadmap transformasi digital menuju Desa Mandiri yang cerdas dan berkelanjutan.</p>
                 </div>
-                <div className="relative pt-8">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-100 hidden md:block" />
-                    <div className="space-y-12 relative">
-                        {[
-                            { step: "Phase 1", title: "Kesiapan SDM & Regulasi", desc: "Pelatihan perangkat desa & Perdes Sistem Informasi Desa." },
-                            { step: "Phase 2", title: "Infrastruktur & Data", desc: "Internet desa & Migrasi data penduduk ke sistem digital." },
-                            { step: "Phase 3", title: "Layanan Mandiri", desc: "Peluncuran aplikasi portal warga & Anjungan Desa Mandiri." },
-                        ].map((phase, i) => (
-                            <div key={i} className={`flex items-center gap-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-                                <div className="flex-1 text-left md:text-right hidden md:block">
-                                    {i % 2 !== 0 && (
-                                        <div className="space-y-2">
-                                            <h4 className="font-bold text-slate-900">{phase.title}</h4>
-                                            <p className="text-sm text-slate-500">{phase.desc}</p>
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="relative z-10 w-12 h-12 rounded-full bg-primary-600 border-4 border-white shadow-lg flex items-center justify-center text-slate-900 font-bold">
-                                    {i + 1}
-                                </div>
-                                <div className="flex-1 text-left">
-                                    <div className="md:hidden space-y-1 mb-2">
-                                        <span className="text-xs font-bold text-primary-600 uppercase tracking-widest">{phase.step}</span>
+
+                <div className="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-2">
+                    {[
+                        {
+                            phase: "Phase 01",
+                            period: "Bulan 1-3",
+                            title: "Digital Foundation",
+                            items: ["Audit Data Kependudukan", "Penyusunan Perdes SID", "Training SDM Aparatur"],
+                            icon: <Database className="w-5 h-5 text-blue-600" />,
+                            color: "from-blue-500/10 to-transparent",
+                            borderColor: "border-blue-200/50"
+                        },
+                        {
+                            phase: "Phase 02",
+                            period: "Bulan 4-6",
+                            title: "Service Integration",
+                            items: ["Aktivasi App Warga", "Implementasi TTE (E-Sign)", "Satu Data Desa Terpadu"],
+                            icon: <Link className="w-5 h-5 text-indigo-600" />,
+                            color: "from-indigo-500/10 to-transparent",
+                            borderColor: "border-indigo-200/50"
+                        },
+                        {
+                            phase: "Phase 03",
+                            period: "Bulan 7-9",
+                            title: "Smart Economy",
+                            items: ["Digitalisasi BUMDes", "Pasar Desa Online", "Portal Wisata & UMKM"],
+                            icon: <TrendingUp className="w-5 h-5 text-emerald-600" />,
+                            color: "from-emerald-500/10 to-transparent",
+                            borderColor: "border-emerald-200/50"
+                        },
+                        {
+                            phase: "Phase 04",
+                            period: "Bulan 10-12",
+                            title: "AI Transformation",
+                            items: ["Prediksi Kemiskinan AI", "Bot Regulasi Otomatis", "Kemandirian Digital Total"],
+                            icon: <Brain className="w-5 h-5 text-primary-600" />,
+                            color: "from-primary-500/10 to-transparent",
+                            borderColor: "border-primary-200/50"
+                        }
+                    ].map((item, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.15 }}
+                            className="relative group"
+                        >
+                            {/* Connectors (Desktop only) */}
+                            {i < 3 && (
+                                <div className="hidden md:block absolute top-10 right-0 w-full h-[2px] bg-gradient-to-r from-slate-200 to-transparent z-0 translate-x-1/2" />
+                            )}
+
+                            <div className={`relative z-10 p-6 rounded-[32px] bg-gradient-to-b ${item.color} border ${item.borderColor} backdrop-blur-md shadow-lg group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 h-full`}>
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className="p-3 rounded-2xl bg-white shadow-md">
+                                        {item.icon}
                                     </div>
-                                    {i % 2 === 0 ? (
-                                        <div className="space-y-2">
-                                            <h4 className="font-bold text-slate-900">{phase.title}</h4>
-                                            <p className="text-sm text-slate-500">{phase.desc}</p>
-                                        </div>
-                                    ) : (
-                                        <div className="md:hidden space-y-2">
-                                            <h4 className="font-bold text-slate-900">{phase.title}</h4>
-                                            <p className="text-sm text-slate-500">{phase.desc}</p>
-                                        </div>
-                                    )}
+                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.phase}</span>
+                                </div>
+                                <div className="space-y-4">
+                                    <div>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1">{item.period}</p>
+                                        <h3 className="text-xl font-bold text-slate-900 leading-tight">{item.title}</h3>
+                                    </div>
+                                    <ul className="space-y-2">
+                                        {item.items.map((point, idx) => (
+                                            <li key={idx} className="flex items-start gap-2 text-[11px] text-slate-600 font-medium">
+                                                <div className="w-1 h-1 rounded-full bg-slate-300 mt-1.5 shrink-0" />
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         ),
