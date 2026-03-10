@@ -82,7 +82,7 @@ export default function SlideManager() {
                             x: { type: "spring", stiffness: 300, damping: 30 },
                             opacity: { duration: 0.4 },
                         }}
-                        className="absolute inset-0 flex items-center justify-center p-8 md:p-20"
+                        className="absolute inset-0 flex items-center justify-center p-4 md:p-12 lg:p-20 overflow-y-auto"
                     >
                         <div className="w-full max-w-6xl">
                             {slides[currentSlide].content}
@@ -92,7 +92,7 @@ export default function SlideManager() {
             </div>
 
             {/* Controls */}
-            <div className="fixed bottom-8 left-0 w-full flex justify-between items-center px-10 z-50 opacity-40 hover:opacity-100 transition-opacity duration-300">
+            <div className="fixed bottom-8 left-0 w-full flex justify-between items-center px-6 md:px-10 z-50 opacity-40 hover:opacity-100 transition-opacity duration-300">
                 <button
                     onClick={prevSlide}
                     disabled={currentSlide === 0}
