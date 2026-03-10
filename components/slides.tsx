@@ -557,7 +557,64 @@ export const slides: Slide[] = [
                     </div>
                 </div>
 
-                {/* Ownership Comparison */}
+                <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 text-center">
+                    <p className="text-slate-600 font-medium italic">"Membangun ekosistem yang terintegrasi, bukan sekadar mengganti kertas menjadi layar."</p>
+                </div>
+            </div>
+        ),
+    },
+    {
+        id: "digital-sovereignty",
+        content: (
+            <div className="space-y-12 h-full flex flex-col justify-center">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-8">
+                        <div className="space-y-4">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest">
+                                <Key className="w-3 h-3" /> Filosofi Non-Vendor Base
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 leading-tight italic">
+                                Kedaulatan & <br />Kepemilikan Desa
+                            </h2>
+                        </div>
+                        <div className="space-y-6">
+                            <p className="text-lg text-slate-600 leading-relaxed">
+                                Aplikasi ini dibangun secara <span className="font-bold text-primary-600 underline decoration-2 underline-offset-4">Custom</span> untuk setiap desa. Desa bukan lagi penyewa, melainkan <span className="font-bold">Pemilik Sah</span> dari sistem ini.
+                            </p>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                                    <h5 className="font-bold text-slate-900 mb-1">Custom Ownership</h5>
+                                    <p className="text-xs text-slate-500">Nama, logo, dan identitas aplikasi sepenuhnya milik desa.</p>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                                    <h5 className="font-bold text-slate-900 mb-1">Private Data</h5>
+                                    <p className="text-xs text-slate-500">Data kependudukan bersifat private di server internal desa.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-primary-100/20 rounded-full blur-3xl animate-pulse" />
+                        <div className="relative glass p-8 rounded-[40px] border border-white shadow-2xl space-y-6">
+                            <div className="flex justify-between items-center pb-4 border-b border-slate-200">
+                                <div className="font-mono text-xs text-slate-500">STATUS: PRIVATE OWNERSHIP</div>
+                                <ShieldCheck className="text-emerald-500 w-6 h-6" />
+                            </div>
+                            <div className="space-y-4">
+                                <div className="h-4 w-3/4 bg-slate-100 rounded-full" />
+                                <div className="h-4 w-full bg-slate-100 rounded-full" />
+                                <div className="h-4 w-2/3 bg-slate-100 rounded-full" />
+                            </div>
+                            <div className="pt-4 border-t border-slate-200">
+                                <div className="p-4 rounded-2xl bg-primary-600 text-white text-center font-bold">
+                                    SISTEM MILIK DESA MANDIRI
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Ownership Comparison Table moved from workflow */}
                 <div className="grid md:grid-cols-2 gap-6">
                     {/* Platform Milik Desa (Ours) */}
                     <div className="glass p-6 rounded-[28px] border-2 border-emerald-200 bg-gradient-to-b from-emerald-50/50 to-white shadow-lg relative overflow-hidden">
@@ -571,18 +628,18 @@ export const slides: Slide[] = [
                                 <p className="text-[11px] text-emerald-600 font-semibold uppercase tracking-wider">Sistem Kami ✓</p>
                             </div>
                         </div>
-                        <div className="space-y-3">
+                        <div className="grid grid-cols-2 gap-3">
                             {[
-                                { text: "Data tersimpan di server lokal desa — aman & berdaulat", icon: "✅" },
-                                { text: "Sistem adalah aset milik desa, bukan sewa/langganan", icon: "✅" },
-                                { text: "Bebas kustomisasi sesuai kebutuhan & visi masing-masing desa", icon: "✅" },
-                                { text: "Bisa dikembangkan mandiri kapan saja tanpa izin vendor", icon: "✅" },
-                                { text: "Tidak ada biaya berulang (no recurring fee)", icon: "✅" },
-                                { text: "Source code menjadi milik pemerintah desa", icon: "✅" }
+                                { text: "Data di server lokal desa", icon: "✅" },
+                                { text: "Sistem milik desa tetap", icon: "✅" },
+                                { text: "Bebas kustomisasi total", icon: "✅" },
+                                { text: "Pengembangan mandiri", icon: "✅" },
+                                { text: "Tanpa biaya berlangganan", icon: "✅" },
+                                { text: "Source code milik desa", icon: "✅" }
                             ].map((item, i) => (
-                                <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white border border-emerald-50">
-                                    <span className="text-sm shrink-0">{item.icon}</span>
-                                    <p className="text-sm text-slate-700 font-medium">{item.text}</p>
+                                <div key={i} className="flex items-start gap-2 p-2 rounded-xl bg-white border border-emerald-50 text-[11px]">
+                                    <span className="shrink-0">{item.icon}</span>
+                                    <p className="text-slate-700 font-medium">{item.text}</p>
                                 </div>
                             ))}
                         </div>
@@ -600,71 +657,20 @@ export const slides: Slide[] = [
                                 <p className="text-[11px] text-red-500 font-semibold uppercase tracking-wider">Aplikasi Umum ✗</p>
                             </div>
                         </div>
-                        <div className="space-y-3">
+                        <div className="grid grid-cols-2 gap-3">
                             {[
-                                { text: "Data disimpan di server pihak ke-3 — rawan & tidak berdaulat", icon: "❌" },
-                                { text: "Sistem hanya disewa, bukan dimiliki desa", icon: "❌" },
-                                { text: "Template kaku, tidak bisa dikustomisasi sesuai kebutuhan", icon: "❌" },
-                                { text: "Ketergantungan penuh pada vendor untuk pengembangan", icon: "❌" },
-                                { text: "Biaya langganan berulang setiap bulan/tahun", icon: "❌" },
-                                { text: "Risiko vendor tutup = data hilang", icon: "❌" }
+                                { text: "Data di server pihak ke-3", icon: "❌" },
+                                { text: "Hanya sewa aplikasi", icon: "❌" },
+                                { text: "Template kaku/fixed", icon: "❌" },
+                                { text: "Tergantung vendor", icon: "❌" },
+                                { text: "Biaya langganan rutin", icon: "❌" },
+                                { text: "Vendor tutup = data hilang", icon: "❌" }
                             ].map((item, i) => (
-                                <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/50 border border-red-50">
-                                    <span className="text-sm shrink-0">{item.icon}</span>
-                                    <p className="text-sm text-slate-500">{item.text}</p>
+                                <div key={i} className="flex items-start gap-2 p-2 rounded-xl bg-white/50 border border-red-50 text-[11px]">
+                                    <span className="shrink-0">{item.icon}</span>
+                                    <p className="text-slate-500">{item.text}</p>
                                 </div>
                             ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        ),
-    },
-    {
-        id: "digital-sovereignty",
-        content: (
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
-                    <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest">
-                            <Key className="w-3 h-3" /> Filosofi Non-Vendor Base
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 leading-tight italic">
-                            Kedaulatan & <br />Kepemilikan Desa
-                        </h2>
-                    </div>
-                    <div className="space-y-6">
-                        <p className="text-lg text-slate-600 leading-relaxed">
-                            Aplikasi ini dibangun secara <span className="font-bold text-primary-600 underline decoration-2 underline-offset-4">Custom</span> untuk setiap desa. Desa bukan lagi penyewa, melainkan <span className="font-bold">Pemilik Sah</span> dari sistem ini.
-                        </p>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                                <h5 className="font-bold text-slate-900 mb-1">Custom Ownership</h5>
-                                <p className="text-xs text-slate-500">Nama, logo, dan identitas aplikasi sepenuhnya milik desa.</p>
-                            </div>
-                            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                                <h5 className="font-bold text-slate-900 mb-1">Private Data</h5>
-                                <p className="text-xs text-slate-500">Data kependudukan bersifat private di server internal desa.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="relative">
-                    <div className="absolute inset-0 bg-primary-100/20 rounded-full blur-3xl animate-pulse" />
-                    <div className="relative glass p-8 rounded-[40px] border border-white shadow-2xl space-y-6">
-                        <div className="flex justify-between items-center pb-4 border-b border-slate-200">
-                            <div className="font-mono text-xs text-slate-500">STATUS: PRIVATE OWNERSHIP</div>
-                            <ShieldCheck className="text-emerald-500 w-6 h-6" />
-                        </div>
-                        <div className="space-y-4">
-                            <div className="h-4 w-3/4 bg-slate-100 rounded-full" />
-                            <div className="h-4 w-full bg-slate-100 rounded-full" />
-                            <div className="h-4 w-2/3 bg-slate-100 rounded-full" />
-                        </div>
-                        <div className="pt-4 border-t border-slate-200">
-                            <div className="p-4 rounded-2xl bg-primary-600 text-slate-900 text-center font-bold">
-                                SISTEM MILIK DESA MANDIRI
-                            </div>
                         </div>
                     </div>
                 </div>
