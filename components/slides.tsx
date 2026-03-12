@@ -585,7 +585,7 @@ export const slides: Slide[] = [
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.15 }}
-                            className={`bg-white p-8 rounded-[40px] border ${item.border} shadow-lg shadow-slate-200/50 hover:shadow-2xl transition-all group relative overflow-hidden flex flex-col`}
+                            className={`bg-white p-6 md:p-8 rounded-[40px] border ${item.border} shadow-lg shadow-slate-200/50 hover:shadow-2xl transition-all group relative overflow-hidden flex flex-col`}
                         >
                             <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-800 via-blue-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className={`w-16 h-16 rounded-2xl ${item.lightColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
@@ -918,7 +918,7 @@ export const slides: Slide[] = [
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-white p-8 rounded-[40px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all group"
+                            className="bg-white p-6 md:p-8 rounded-[40px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all group"
                         >
                             <div className={`w-16 h-16 rounded-2xl ${item.lightColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                                 <div className={`${item.color} text-white p-3 rounded-xl`}>{item.icon}</div>
@@ -974,7 +974,7 @@ export const slides: Slide[] = [
 
                 <div className="relative">
                     <div className="absolute inset-0 bg-blue-700/5 rounded-[60px] transform rotate-3 scale-105" />
-                    <div className="relative glass h-[450px] rounded-[50px] border border-white p-10 overflow-hidden flex flex-col justify-center items-center text-center">
+                    <div className="relative glass h-[450px] rounded-[50px] border border-white p-6 md:p-10 overflow-hidden flex flex-col justify-center items-center text-center">
                         <PieChart className="w-48 h-48 text-blue-100 absolute -top-10 -right-10 opacity-20" />
                         <div className="space-y-6 relative z-10">
                             <div className="w-24 h-24 rounded-full bg-blue-700 flex items-center justify-center mx-auto shadow-2xl shadow-blue-200">
@@ -1128,7 +1128,7 @@ export const slides: Slide[] = [
                         ))}
                     </div>
 
-                    <div className="md:col-span-4 bg-slate-900 rounded-[40px] p-8 text-white flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                    <div className="md:col-span-4 bg-slate-900 rounded-[40px] p-6 md:p-8 text-white flex flex-col justify-between relative overflow-hidden shadow-2xl">
                         <div className="absolute top-0 right-0 p-8 opacity-10">
                             <BarChart className="w-32 h-32" />
                         </div>
@@ -1677,7 +1677,7 @@ export const slides: Slide[] = [
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="md:col-span-6 lg:col-span-4 p-8 rounded-[40px] bg-blue-600 text-white shadow-xl flex flex-col justify-between"
+                        className="md:col-span-6 lg:col-span-4 p-6 md:p-8 rounded-[40px] bg-blue-600 text-white shadow-xl flex flex-col justify-between"
                     >
                         <div className="space-y-6">
                             <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
@@ -1700,7 +1700,7 @@ export const slides: Slide[] = [
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="md:col-span-6 lg:col-span-4 p-8 rounded-[40px] bg-white border border-slate-100 shadow-lg flex flex-col gap-4"
+                        className="md:col-span-6 lg:col-span-4 p-6 md:p-8 rounded-[40px] bg-white border border-slate-100 shadow-lg flex flex-col gap-4"
                     >
                         <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600">
                             <Clock className="w-6 h-6" />
@@ -1904,7 +1904,7 @@ export const slides: Slide[] = [
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="p-8 rounded-[40px] bg-white border border-slate-100 shadow-xl text-left space-y-4 group hover:border-violet-200 transition-colors"
+                        className="p-6 md:p-8 rounded-[40px] bg-white border border-slate-100 shadow-xl text-left space-y-4 group hover:border-violet-200 transition-colors"
                     >
                         <div className="w-12 h-12 rounded-2xl bg-violet-50 flex items-center justify-center text-violet-600 mb-2">
                             <Settings2 className="w-6 h-6" />
@@ -1919,7 +1919,7 @@ export const slides: Slide[] = [
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.6 }}
-                        className="p-8 rounded-[40px] bg-slate-900 text-white shadow-xl text-left space-y-4 group hover:bg-slate-800 transition-colors"
+                        className="p-6 md:p-8 rounded-[40px] bg-slate-900 text-white shadow-xl text-left space-y-4 group hover:bg-slate-800 transition-colors"
                     >
                         <div className="w-12 h-12 rounded-2xl bg-violet-600/20 flex items-center justify-center text-violet-400 mb-2">
                             <Cpu className="w-6 h-6" />
