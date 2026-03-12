@@ -33,6 +33,10 @@ export default function SlideManager() {
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentSlide]);
+
+    useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "ArrowRight" || e.key === "Space") nextSlide();
             if (e.key === "ArrowLeft") prevSlide();
@@ -60,7 +64,7 @@ export default function SlideManager() {
     };
 
     return (
-        <main className="relative min-h-screen w-full overflow-hidden bg-white text-slate-900 flex flex-col font-sans select-none">
+        <main className="relative min-h-screen w-full overflow-x-hidden bg-white text-slate-900 flex flex-col font-sans select-none">
             {/* Background decoration */}
             <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-100/40 blur-[60px] md:blur-[120px] rounded-full" />
@@ -82,7 +86,7 @@ export default function SlideManager() {
             </div>
 
             {/* Content Area */}
-            <div className="flex-grow relative flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-12 z-10 w-full pb-24 md:pb-12 overflow-hidden">
+            <div className="flex-grow relative flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-12 z-10 w-full pb-32 md:pb-12">
                 <AnimatePresence initial={false} custom={direction} mode="wait">
                     <motion.div
                         key={currentSlide}
