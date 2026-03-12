@@ -23,6 +23,16 @@ export default function SlideManager() {
         }
     };
 
+    const handleDragEnd = (e: any, { offset, velocity }: any) => {
+        const swipe = Math.abs(offset.x) * velocity.x;
+
+        if (swipe < -10000) {
+            nextSlide();
+        } else if (swipe > 10000) {
+            prevSlide();
+        }
+    };
+
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "ArrowRight" || e.key === "Space") nextSlide();
@@ -51,9 +61,9 @@ export default function SlideManager() {
     };
 
     return (
-        <main className="relative h-screen w-full overflow-hidden bg-white text-slate-900 flex flex-col font-sans">
+        <main className="relative min-h-screen w-full overflow-x-hidden bg-white text-slate-900 flex flex-col font-sans">
             {/* Background decoration */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-100/40 blur-[120px] rounded-full" />
                 <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-50/50 blur-[150px] rounded-full" />
             </div>
@@ -69,8 +79,8 @@ export default function SlideManager() {
             </div>
 
             {/* Content Area */}
-            <div className="flex-grow relative flex items-center justify-center p-6 md:p-12 z-10">
-                <AnimatePresence initial={false} custom={direction}>
+            <div className="flex-grow relative flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-12 z-10 w-full pb-24 md:pb-12">
+                <AnimatePresence initial={false} custom={direction} mode="wait">
                     <motion.div
                         key={currentSlide}
                         custom={direction}
@@ -82,7 +92,11 @@ export default function SlideManager() {
                             x: { type: "spring", stiffness: 300, damping: 30 },
                             opacity: { duration: 0.4 },
                         }}
-                        className="absolute inset-0 flex items-center justify-center p-4 md:p-12 lg:p-20 overflow-y-auto"
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.2}
+                        onDragEnd={handleDragEnd}
+                        className="w-full flex items-center justify-center cursor-grab active:cursor-grabbing"
                     >
                         <div className="w-full max-w-6xl">
                             {slides[currentSlide].content}
